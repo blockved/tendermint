@@ -17,7 +17,7 @@ DOCKER_BUF := docker run -v $(shell pwd):/workspace --workdir /workspace bufbuil
 CGO_ENABLED ?= 0
 
 # handle nostrip
-ifeq (,$(findstring nostrip,$(TENDERMINT_BUILD_OPTIONS)))
+ifeq (nostrip,$(findstring nostrip,$(TENDERMINT_BUILD_OPTIONS)))
   BUILD_FLAGS += -trimpath
   LD_FLAGS += -s -w
 endif
